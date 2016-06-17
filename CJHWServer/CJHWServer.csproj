@@ -66,11 +66,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CJHWServiceBase.asmx" />
+    <Content Include="CJHWServiceCode.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CJHWServiceBase.asmx.cs">
       <DependentUpon>CJHWServiceBase.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CJHWServiceCode.asmx.cs">
+      <DependentUpon>CJHWServiceCode.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +85,10 @@
     <ProjectReference Include="..\CJH.BLL\CJH.BLL.csproj">
       <Project>{825f9f40-e124-4f8f-982c-5488328c8f70}</Project>
       <Name>CJH.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CJH.Common\CJH.Common.csproj">
+      <Project>{cfd5b9a4-171f-4e8e-9ffe-15949d35f5c1}</Project>
+      <Name>CJH.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\CJH.Model\CJH.Model.csproj">
       <Project>{2b045f76-6d15-464e-b689-a87e0a5f28e4}</Project>

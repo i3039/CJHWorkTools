@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base_Area.cs" />
+    <Compile Include="HHT_Address.cs" />
     <Compile Include="HHT_Area.cs" />
+    <Compile Include="Job_HHTCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

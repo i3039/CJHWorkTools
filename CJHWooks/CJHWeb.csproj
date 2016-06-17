@@ -76,7 +76,6 @@
     <Compile Include="Base\frmBaseSearch.aspx.designer.cs">
       <DependentUpon>frmBaseSearch.aspx</DependentUpon>
     </Compile>
-    <Compile Include="JsonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BLL\WebServiceCaller.cs" />
   </ItemGroup>

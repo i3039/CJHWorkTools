@@ -18,13 +18,16 @@ namespace CJH.CJHWServer
     // [System.Web.Script.Services.ScriptService]
     public class CJHWServiceBase : System.Web.Services.WebService
     {
+        //Common.JsonHelper jsonHelper = new Common.JsonHelper();
         BLL.Base_Area areaBLL = new BLL.Base_Area();
 
         [WebMethod(Description="根据地区编码查询地名")]
         [ScriptMethod(UseHttpGet = false)]
         public string GetAreaName(string code)
         {
-            return  areaBLL.GetAllName(code);
+            return Common.JsonHelper.Serialize(areaBLL.GetAllName(code));
         }
     }
 }
+
+

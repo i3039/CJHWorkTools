@@ -27,7 +27,16 @@ namespace CJH.CJHWServer
         {
             return Common.JsonHelper.Serialize(areaBLL.GetAllName(code));
         }
+
+        [WebMethod(Description = "根据地名查询地区编码")]
+        [ScriptMethod(UseHttpGet = false)]
+        public string GetAreaCode(string areaname)
+        {
+            return Common.JsonHelper.Serialize(areaBLL.GetModelList(" AreaName like '" + areaname + "%' "));
+        }
     }
+
+    
 }
 
 

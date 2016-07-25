@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2016/6/12 10:53:24   N/A    初版
+* V0.01  2016/7/25 12:01:57   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -22,7 +22,7 @@ using CJH.Model;
 namespace CJH.BLL
 {
 	/// <summary>
-	/// Base_Area
+	/// 国标行政区划
 	/// </summary>
 	public partial class Base_Area
 	{

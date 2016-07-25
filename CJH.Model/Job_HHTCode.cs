@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2016/6/14 11:39:48   N/A    初版
+* V0.01  2016/7/25 12:02:00   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -18,7 +18,7 @@ using System;
 namespace CJH.Model
 {
 	/// <summary>
-	/// Job_HHTCode:实体类(属性说明自动提取数据库字段的描述信息)
+	/// 户户通工号
 	/// </summary>
 	[Serializable]
 	public partial class Job_HHTCode
@@ -26,6 +26,7 @@ namespace CJH.Model
 		public Job_HHTCode()
 		{}
 		#region Model
+		private int _id;
 		private string _area_code;
 		private string _job_code;
 		private string _password;
@@ -34,6 +35,14 @@ namespace CJH.Model
 		private string _comm_code;
 		private string _comm_pwd;
 		private string _remark;
+		/// <summary>
+		/// 
+		/// </summary>
+		public int ID
+		{
+			set{ _id=value;}
+			get{return _id;}
+		}
 		/// <summary>
 		/// 地区编码
 		/// </summary>

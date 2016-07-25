@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace CJH.BLL
 {
@@ -42,7 +43,24 @@ namespace CJH.BLL
             return pname + "" + ciname + "" + coname;
         }
 
-        //public string GetCode(string areaname)
+        /// <summary>
+        /// 获取省级列表
+        /// </summary>
+        /// <returns></returns>
+        public DataSet GetProvince()
+        {
+            return dal.GetList(" Area_Level=1 ");
+        }
+
+        /// <summary>
+        /// 获取下级区域列表
+        /// </summary>
+        /// <param name="pcode"></param>
+        /// <returns></returns>
+        public DataSet GetCity(string pcode)
+        {
+            return dal.GetList(" Code like '" + Common.StringHelper.GetAreaDelZero(pcode) + "%'");
+        }
 
         #endregion Ext
     }

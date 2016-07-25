@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2016/6/14 11:39:48   N/A    初版
+* V0.01  2016/7/25 12:02:00   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -30,18 +30,42 @@ namespace CJH.DAL
 		{}
 		#region  BasicMethod
 
+		/// <summary>
+		/// 得到最大ID
+		/// </summary>
+		public int GetMaxId()
+		{
+		return DbHelperSQL.GetMaxID("ID", "Job_HHTCode"); 
+		}
+
+		/// <summary>
+		/// 是否存在该记录
+		/// </summary>
+		public bool Exists(int ID)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select count(1) from Job_HHTCode");
+			strSql.Append(" where ID=@ID");
+			SqlParameter[] parameters = {
+					new SqlParameter("@ID", SqlDbType.Int,4)
+			};
+			parameters[0].Value = ID;
+
+			return DbHelperSQL.Exists(strSql.ToString(),parameters);
+		}
 
 
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public bool Add(CJH.Model.Job_HHTCode model)
+		public int Add(CJH.Model.Job_HHTCode model)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Job_HHTCode(");
 			strSql.Append("Area_Code,Job_Code,Password,IsChild,IsCommon,Comm_Code,Comm_PWD,Remark)");
 			strSql.Append(" values (");
 			strSql.Append("@Area_Code,@Job_Code,@Password,@IsChild,@IsCommon,@Comm_Code,@Comm_PWD,@Remark)");
+			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Area_Code", SqlDbType.NVarChar,6),
 					new SqlParameter("@Job_Code", SqlDbType.NVarChar,20),
@@ -60,14 +84,14 @@ namespace CJH.DAL
 			parameters[6].Value = model.Comm_PWD;
 			parameters[7].Value = model.Remark;
 
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
+			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
+			if (obj == null)
 			{
-				return true;
+				return 0;
 			}
 			else
 			{
-				return false;
+				return Convert.ToInt32(obj);
 			}
 		}
 		/// <summary>
@@ -85,7 +109,7 @@ namespace CJH.DAL
 			strSql.Append("Comm_Code=@Comm_Code,");
 			strSql.Append("Comm_PWD=@Comm_PWD,");
 			strSql.Append("Remark=@Remark");
-			strSql.Append(" where ");
+			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Area_Code", SqlDbType.NVarChar,6),
 					new SqlParameter("@Job_Code", SqlDbType.NVarChar,20),
@@ -94,7 +118,8 @@ namespace CJH.DAL
 					new SqlParameter("@IsCommon", SqlDbType.Int,4),
 					new SqlParameter("@Comm_Code", SqlDbType.NVarChar,20),
 					new SqlParameter("@Comm_PWD", SqlDbType.NVarChar,20),
-					new SqlParameter("@Remark", SqlDbType.NVarChar,50)};
+					new SqlParameter("@Remark", SqlDbType.NVarChar,50),
+					new SqlParameter("@ID", SqlDbType.Int,4)};
 			parameters[0].Value = model.Area_Code;
 			parameters[1].Value = model.Job_Code;
 			parameters[2].Value = model.Password;
@@ -103,6 +128,7 @@ namespace CJH.DAL
 			parameters[5].Value = model.Comm_Code;
 			parameters[6].Value = model.Comm_PWD;
 			parameters[7].Value = model.Remark;
+			parameters[8].Value = model.ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -118,16 +144,36 @@ namespace CJH.DAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete()
+		public bool Delete(int ID)
 		{
-			//该表无主键信息，请自定义主键/条件字段
+			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from Job_HHTCode ");
-			strSql.Append(" where ");
+			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
+					new SqlParameter("@ID", SqlDbType.Int,4)
 			};
+			parameters[0].Value = ID;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+			if (rows > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		/// <summary>
+		/// 批量删除数据
+		/// </summary>
+		public bool DeleteList(string IDlist )
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("delete from Job_HHTCode ");
+			strSql.Append(" where ID in ("+IDlist + ")  ");
+			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
 			if (rows > 0)
 			{
 				return true;
@@ -142,14 +188,16 @@ namespace CJH.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public CJH.Model.Job_HHTCode GetModel()
+		public CJH.Model.Job_HHTCode GetModel(int ID)
 		{
-			//该表无主键信息，请自定义主键/条件字段
+			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 Area_Code,Job_Code,Password,IsChild,IsCommon,Comm_Code,Comm_PWD,Remark from Job_HHTCode ");
-			strSql.Append(" where ");
+			strSql.Append("select  top 1 ID,Area_Code,Job_Code,Password,IsChild,IsCommon,Comm_Code,Comm_PWD,Remark from Job_HHTCode ");
+			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
+					new SqlParameter("@ID", SqlDbType.Int,4)
 			};
+			parameters[0].Value = ID;
 
 			CJH.Model.Job_HHTCode model=new CJH.Model.Job_HHTCode();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
@@ -172,6 +220,10 @@ namespace CJH.DAL
 			CJH.Model.Job_HHTCode model=new CJH.Model.Job_HHTCode();
 			if (row != null)
 			{
+				if(row["ID"]!=null && row["ID"].ToString()!="")
+				{
+					model.ID=int.Parse(row["ID"].ToString());
+				}
 				if(row["Area_Code"]!=null)
 				{
 					model.Area_Code=row["Area_Code"].ToString();
@@ -214,7 +266,7 @@ namespace CJH.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select Area_Code,Job_Code,Password,IsChild,IsCommon,Comm_Code,Comm_PWD,Remark ");
+			strSql.Append("select ID,Area_Code,Job_Code,Password,IsChild,IsCommon,Comm_Code,Comm_PWD,Remark ");
 			strSql.Append(" FROM Job_HHTCode ");
 			if(strWhere.Trim()!="")
 			{
@@ -234,7 +286,7 @@ namespace CJH.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" Area_Code,Job_Code,Password,IsChild,IsCommon,Comm_Code,Comm_PWD,Remark ");
+			strSql.Append(" ID,Area_Code,Job_Code,Password,IsChild,IsCommon,Comm_Code,Comm_PWD,Remark ");
 			strSql.Append(" FROM Job_HHTCode ");
 			if(strWhere.Trim()!="")
 			{

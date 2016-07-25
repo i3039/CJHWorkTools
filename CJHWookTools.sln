@@ -17,6 +17,32 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CJH.Model", "CJH.Model\CJH.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CJHWServer", "CJHWServer\CJHWServer.csproj", "{D29A5FF8-C5AC-4A72-BC52-63C538A5CB30}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CJHToolWeb", "http://localhost:15246", "{991A288B-A756-40BA-BC2E-05484727C488}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_15246"
+		Debug.AspNetCompiler.PhysicalPath = "CJHToolWeb\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_15246\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_15246"
+		Release.AspNetCompiler.PhysicalPath = "CJHToolWeb\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_15246\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "CJHToolWeb\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{699D7A32-566E-4B60-98FB-84CB9677BB18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CJHToolForWin", "CJHToolForWin\CJHToolForWin.csproj", "{001D6805-5C8A-4E12-884E-A2CE3B690A81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +77,18 @@ Global
 		{D29A5FF8-C5AC-4A72-BC52-63C538A5CB30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D29A5FF8-C5AC-4A72-BC52-63C538A5CB30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D29A5FF8-C5AC-4A72-BC52-63C538A5CB30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{991A288B-A756-40BA-BC2E-05484727C488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{991A288B-A756-40BA-BC2E-05484727C488}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{991A288B-A756-40BA-BC2E-05484727C488}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{991A288B-A756-40BA-BC2E-05484727C488}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{699D7A32-566E-4B60-98FB-84CB9677BB18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{699D7A32-566E-4B60-98FB-84CB9677BB18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{699D7A32-566E-4B60-98FB-84CB9677BB18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{699D7A32-566E-4B60-98FB-84CB9677BB18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{001D6805-5C8A-4E12-884E-A2CE3B690A81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{001D6805-5C8A-4E12-884E-A2CE3B690A81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{001D6805-5C8A-4E12-884E-A2CE3B690A81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{001D6805-5C8A-4E12-884E-A2CE3B690A81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

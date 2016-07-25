@@ -30,8 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Maticsoft.Common">
-      <HintPath>..\..\Lib\Maticsoft.Common.dll</HintPath>
+    <Reference Include="Maticsoft.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\Maticsoft.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -42,14 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Act_Common.cs" />
+    <Compile Include="Act_Item.cs" />
+    <Compile Include="Act_Settlement.cs" />
     <Compile Include="Base_Area.cs" />
     <Compile Include="BLL_Ext.cs" />
-    <Compile Include="HHT_Address.cs" />
+    <Compile Include="Common_Strings.cs" />
     <Compile Include="HHT_Area.cs" />
+    <Compile Include="Job_CardInfo.cs" />
     <Compile Include="Job_HHTCode.cs" />
+    <Compile Include="Job_Open_Temp.cs" />
+    <Compile Include="Job_YT_Info.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CJH.Common\CJH.Common.csproj">
+      <Project>{cfd5b9a4-171f-4e8e-9ffe-15949d35f5c1}</Project>
+      <Name>CJH.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CJH.DAL\CJH.DAL.csproj">
       <Project>{def5570c-02b3-4765-92a1-56a95db4576b}</Project>
       <Name>CJH.DAL</Name>

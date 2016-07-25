@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2016/6/12 10:53:24   N/A    初版
+* V0.01  2016/7/25 12:01:57   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -18,7 +18,7 @@ using System;
 namespace CJH.Model
 {
 	/// <summary>
-	/// Base_Area:实体类(属性说明自动提取数据库字段的描述信息)
+	/// 国标行政区划
 	/// </summary>
 	[Serializable]
 	public partial class Base_Area

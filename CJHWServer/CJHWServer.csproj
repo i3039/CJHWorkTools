@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\CJHTools.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -66,12 +67,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CJHWServiceBase.asmx" />
+    <Content Include="CJHWServiceCardInfo.asmx" />
     <Content Include="CJHWServiceCode.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CJHWServiceBase.asmx.cs">
       <DependentUpon>CJHWServiceBase.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CJHWServiceCardInfo.asmx.cs">
+      <DependentUpon>CJHWServiceCardInfo.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CJHWServiceCode.asmx.cs">

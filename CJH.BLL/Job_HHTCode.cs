@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2016/6/14 11:39:48   N/A    初版
+* V0.01  2016/7/25 12:02:00   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -22,7 +22,7 @@ using CJH.Model;
 namespace CJH.BLL
 {
 	/// <summary>
-	/// Job_HHTCode
+	/// 户户通工号
 	/// </summary>
 	public partial class Job_HHTCode
 	{
@@ -32,9 +32,25 @@ namespace CJH.BLL
 		#region  BasicMethod
 
 		/// <summary>
+		/// 得到最大ID
+		/// </summary>
+		public int GetMaxId()
+		{
+			return dal.GetMaxId();
+		}
+
+		/// <summary>
+		/// 是否存在该记录
+		/// </summary>
+		public bool Exists(int ID)
+		{
+			return dal.Exists(ID);
+		}
+
+		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public bool Add(CJH.Model.Job_HHTCode model)
+		public int  Add(CJH.Model.Job_HHTCode model)
 		{
 			return dal.Add(model);
 		}
@@ -50,34 +66,41 @@ namespace CJH.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete()
+		public bool Delete(int ID)
 		{
-			//该表无主键信息，请自定义主键/条件字段
-			return dal.Delete();
+			
+			return dal.Delete(ID);
+		}
+		/// <summary>
+		/// 删除一条数据
+		/// </summary>
+		public bool DeleteList(string IDlist )
+		{
+			return dal.DeleteList(IDlist );
 		}
 
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public CJH.Model.Job_HHTCode GetModel()
+		public CJH.Model.Job_HHTCode GetModel(int ID)
 		{
-			//该表无主键信息，请自定义主键/条件字段
-			return dal.GetModel();
+			
+			return dal.GetModel(ID);
 		}
 
 		/// <summary>
 		/// 得到一个对象实体，从缓存中
 		/// </summary>
-		public CJH.Model.Job_HHTCode GetModelByCache()
+		public CJH.Model.Job_HHTCode GetModelByCache(int ID)
 		{
-			//该表无主键信息，请自定义主键/条件字段
-			string CacheKey = "Job_HHTCodeModel-" ;
+			
+			string CacheKey = "Job_HHTCodeModel-" + ID;
 			object objModel = Maticsoft.Common.DataCache.GetCache(CacheKey);
 			if (objModel == null)
 			{
 				try
 				{
-					objModel = dal.GetModel();
+					objModel = dal.GetModel(ID);
 					if (objModel != null)
 					{
 						int ModelCache = Maticsoft.Common.ConfigHelper.GetConfigInt("ModelCache");

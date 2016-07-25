@@ -39,10 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Act_Common.cs" />
+    <Compile Include="Act_Item.cs" />
+    <Compile Include="Act_Settlement.cs" />
     <Compile Include="Base_Area.cs" />
-    <Compile Include="HHT_Address.cs" />
+    <Compile Include="Common_Strings.cs" />
     <Compile Include="HHT_Area.cs" />
+    <Compile Include="Job_CardInfo.cs" />
     <Compile Include="Job_HHTCode.cs" />
+    <Compile Include="Job_Open_Temp.cs" />
+    <Compile Include="Job_YT_Info.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

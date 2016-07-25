@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>@Page.Title - CJH 工作工具</title>
+    <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.3.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    @*<header>
+        <div class="content-wrapper">
+            lkj
+        </div>
+    </header>*@
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <div id="HHTPage" style="width:98%; height:500px; display:block; margin: 0px auto;">
+            <iframe frameborder="0" width="100%" height="500" marginheight="0" marginwidth="0" scrolling="auto" src="http://sms.huhutv.com.cn/rtcrm-clientweb/npage/obim/staff/loginmng/initLogin.do"></iframe>
+        </div>
+        @*
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>*@
+    </div>
+    @*<footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 网页</p>
+            </div>
+        </div>
+    </footer>*@
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

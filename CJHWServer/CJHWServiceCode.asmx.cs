@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Services;
 using System.Web.Services;
 
 namespace CJH.CJHWServer
@@ -16,11 +17,14 @@ namespace CJH.CJHWServer
     [System.Web.Script.Services.ScriptService]
     public class CJHWServiceCode : System.Web.Services.WebService
     {
+        BLL.Job_HHTCode jcodeBLL = new BLL.Job_HHTCode();
 
-        [WebMethod]
-        public string HelloWorld()
+        [WebMethod(Description = "根据地区编码查询工号")]
+        [ScriptMethod(UseHttpGet = false)]
+        public string GetJobCodeByArea(string areacode)
         {
-            return "Hello World";
+            string strCode = Common.StringHelper.GetAreaDelZero(areacode);
+            return Common.JsonHelper.Serialize(jcodeBLL.GetModelList(" Area_Code like '" + strCode + "%'"));
         }
     }
 }

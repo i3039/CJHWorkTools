@@ -1,4 +1,4 @@
-﻿namespace CJHToolForWin
+﻿namespace CJH.CJHToolForWin
 {
     partial class frmMoveAndReplace
     {

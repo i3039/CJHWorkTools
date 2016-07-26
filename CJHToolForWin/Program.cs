@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CJHToolForWin
+namespace CJH.CJHToolForWin
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace CJHToolForWin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMoveAndReplace());
+            Application.Run(new frmHHTArea());
         }
     }
 }

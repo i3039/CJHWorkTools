@@ -44,6 +44,7 @@
     <Compile Include="Act_Settlement.cs" />
     <Compile Include="Base_Area.cs" />
     <Compile Include="Common_Strings.cs" />
+    <Compile Include="DAL_Ext.cs" />
     <Compile Include="HHT_Area.cs" />
     <Compile Include="Job_CardInfo.cs" />
     <Compile Include="Job_HHTCode.cs" />

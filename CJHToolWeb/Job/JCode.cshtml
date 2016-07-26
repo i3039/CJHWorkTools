@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/_BaseLayout.cshtml";
+    Page.Title = "工号查询";
+}
+}
+
+@{
+    WS_Area.CJHWServiceBase area = new WS_Area.CJHWServiceBase();
+    List<CJH.Model.Base_Area> areaP = CJH.Common.JsonHelper.ParseFormJson<List<CJH.Model.Base_Area>>(area.GetProvinces());
+    //List<ProductInfo> listJson = JsonHelper.FromJsonTo<List<ProductInfo>>(str);
+}
+
+@section featured {
+    <section class="featured">
+        <ul>
+            @foreach (CJH.Model.Base_Area item in areaP)
+            {
+                <li>@item.AreaName</li>
+            }
+        </ul>
+    </section>
+}

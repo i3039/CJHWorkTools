@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetAreaName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAreaNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAreaNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAreaCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="areaname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAreaCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAreaCodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProvinces">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProvincesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProvincesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCounty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCountyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCountyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAreaNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAreaName" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAreaNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAreaCode" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAreaCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProvincesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProvinces" />
+  </wsdl:message>
+  <wsdl:message name="GetProvincesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProvincesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCity" />
+  </wsdl:message>
+  <wsdl:message name="GetCitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCountySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCounty" />
+  </wsdl:message>
+  <wsdl:message name="GetCountySoapOut">
+    <wsdl:part name="parameters" element="tns:GetCountyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaNameHttpGetIn">
+    <wsdl:part name="code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaNameHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaCodeHttpGetIn">
+    <wsdl:part name="areaname" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaCodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProvincesHttpGetIn" />
+  <wsdl:message name="GetProvincesHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCityHttpGetIn">
+    <wsdl:part name="pcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCityHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCountyHttpGetIn">
+    <wsdl:part name="pcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCountyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaNameHttpPostIn">
+    <wsdl:part name="code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaNameHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaCodeHttpPostIn">
+    <wsdl:part name="areaname" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaCodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProvincesHttpPostIn" />
+  <wsdl:message name="GetProvincesHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCityHttpPostIn">
+    <wsdl:part name="pcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCityHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCountyHttpPostIn">
+    <wsdl:part name="pcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCountyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="CJHWServiceBaseSoap">
+    <wsdl:operation name="GetAreaName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地区编码查询地名</wsdl:documentation>
+      <wsdl:input message="tns:GetAreaNameSoapIn" />
+      <wsdl:output message="tns:GetAreaNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地名查询地区编码</wsdl:documentation>
+      <wsdl:input message="tns:GetAreaCodeSoapIn" />
+      <wsdl:output message="tns:GetAreaCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinces">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取省级列表</wsdl:documentation>
+      <wsdl:input message="tns:GetProvincesSoapIn" />
+      <wsdl:output message="tns:GetProvincesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCity">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取地市级列表</wsdl:documentation>
+      <wsdl:input message="tns:GetCitySoapIn" />
+      <wsdl:output message="tns:GetCitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCounty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取区县级列表</wsdl:documentation>
+      <wsdl:input message="tns:GetCountySoapIn" />
+      <wsdl:output message="tns:GetCountySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CJHWServiceBaseHttpGet">
+    <wsdl:operation name="GetAreaName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地区编码查询地名</wsdl:documentation>
+      <wsdl:input message="tns:GetAreaNameHttpGetIn" />
+      <wsdl:output message="tns:GetAreaNameHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地名查询地区编码</wsdl:documentation>
+      <wsdl:input message="tns:GetAreaCodeHttpGetIn" />
+      <wsdl:output message="tns:GetAreaCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinces">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取省级列表</wsdl:documentation>
+      <wsdl:input message="tns:GetProvincesHttpGetIn" />
+      <wsdl:output message="tns:GetProvincesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCity">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取地市级列表</wsdl:documentation>
+      <wsdl:input message="tns:GetCityHttpGetIn" />
+      <wsdl:output message="tns:GetCityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCounty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取区县级列表</wsdl:documentation>
+      <wsdl:input message="tns:GetCountyHttpGetIn" />
+      <wsdl:output message="tns:GetCountyHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CJHWServiceBaseHttpPost">
+    <wsdl:operation name="GetAreaName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地区编码查询地名</wsdl:documentation>
+      <wsdl:input message="tns:GetAreaNameHttpPostIn" />
+      <wsdl:output message="tns:GetAreaNameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地名查询地区编码</wsdl:documentation>
+      <wsdl:input message="tns:GetAreaCodeHttpPostIn" />
+      <wsdl:output message="tns:GetAreaCodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinces">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取省级列表</wsdl:documentation>
+      <wsdl:input message="tns:GetProvincesHttpPostIn" />
+      <wsdl:output message="tns:GetProvincesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCity">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取地市级列表</wsdl:documentation>
+      <wsdl:input message="tns:GetCityHttpPostIn" />
+      <wsdl:output message="tns:GetCityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCounty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取区县级列表</wsdl:documentation>
+      <wsdl:input message="tns:GetCountyHttpPostIn" />
+      <wsdl:output message="tns:GetCountyHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CJHWServiceBaseSoap" type="tns:CJHWServiceBaseSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAreaName">
+      <soap:operation soapAction="http://tempuri.org/GetAreaName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaCode">
+      <soap:operation soapAction="http://tempuri.org/GetAreaCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinces">
+      <soap:operation soapAction="http://tempuri.org/GetProvinces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCity">
+      <soap:operation soapAction="http://tempuri.org/GetCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCounty">
+      <soap:operation soapAction="http://tempuri.org/GetCounty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CJHWServiceBaseSoap12" type="tns:CJHWServiceBaseSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAreaName">
+      <soap12:operation soapAction="http://tempuri.org/GetAreaName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaCode">
+      <soap12:operation soapAction="http://tempuri.org/GetAreaCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinces">
+      <soap12:operation soapAction="http://tempuri.org/GetProvinces" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCity">
+      <soap12:operation soapAction="http://tempuri.org/GetCity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCounty">
+      <soap12:operation soapAction="http://tempuri.org/GetCounty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CJHWServiceBaseHttpGet" type="tns:CJHWServiceBaseHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetAreaName">
+      <http:operation location="/GetAreaName" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaCode">
+      <http:operation location="/GetAreaCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinces">
+      <http:operation location="/GetProvinces" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCity">
+      <http:operation location="/GetCity" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCounty">
+      <http:operation location="/GetCounty" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CJHWServiceBaseHttpPost" type="tns:CJHWServiceBaseHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetAreaName">
+      <http:operation location="/GetAreaName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaCode">
+      <http:operation location="/GetAreaCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinces">
+      <http:operation location="/GetProvinces" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCity">
+      <http:operation location="/GetCity" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCounty">
+      <http:operation location="/GetCounty" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CJHWServiceBase">
+    <wsdl:port name="CJHWServiceBaseSoap" binding="tns:CJHWServiceBaseSoap">
+      <soap:address location="http://cjh.viplive.cn:81/CJHWServiceBase.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CJHWServiceBaseSoap12" binding="tns:CJHWServiceBaseSoap12">
+      <soap12:address location="http://cjh.viplive.cn:81/CJHWServiceBase.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CJHWServiceBaseHttpGet" binding="tns:CJHWServiceBaseHttpGet">
+      <http:address location="http://cjh.viplive.cn:81/CJHWServiceBase.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CJHWServiceBaseHttpPost" binding="tns:CJHWServiceBaseHttpPost">
+      <http:address location="http://cjh.viplive.cn:81/CJHWServiceBase.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

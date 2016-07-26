@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://cjh.viplive.cn:81/CJHWServiceBase.asmx?wsdl" filename="CJHWServiceBase.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://cjh.viplive.cn:81/CJHWServiceBase.asmx?disco" filename="CJHWServiceBase.disco" />
+  </Results>
+</DiscoveryClientResultsFile>

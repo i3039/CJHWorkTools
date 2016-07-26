@@ -43,23 +43,50 @@ namespace CJH.BLL
             return pname + "" + ciname + "" + coname;
         }
 
+        public List<Model.Base_Area> GetAreaCode(string areaname)
+        {
+            return GetModelList(" AreaName like '" + areaname + "%' ");
+        }
+
         /// <summary>
         /// 获取省级列表
         /// </summary>
         /// <returns></returns>
-        public DataSet GetProvince()
+        public List<Model.Base_Area> GetProvince()
         {
-            return dal.GetList(" Area_Level=1 ");
+            return GetModelList(" Area_Level=1 ");
         }
 
         /// <summary>
         /// 获取下级区域列表
         /// </summary>
-        /// <param name="pcode"></param>
+        /// <param name="pcode">父地区</param>
+        /// <param name="level">地区级别</param>
         /// <returns></returns>
-        public DataSet GetCity(string pcode)
+        public List<Model.Base_Area> GetAreaList(string pcode, int level)
         {
-            return dal.GetList(" Code like '" + Common.StringHelper.GetAreaDelZero(pcode) + "%'");
+            if (level == 2)
+            {
+                pcode = pcode.Substring(0, 2);
+            }
+            else if (level == 3)
+            {
+                pcode = pcode.Substring(0, 4);
+            }
+            return GetModelList(" Code like '" + pcode + "%' and Area_Level=" + level);
+        }
+
+        #endregion Ext
+    }
+
+    public partial class HHT_Area
+    {
+        #region Ext
+
+        public List<Model.HHT_Area> GetHHTAreaList(string pcode)
+        {
+            pcode = pcode.Substring(0, 9);
+            return GetModelList(" Code like '" + pcode + "%'");
         }
 
         #endregion Ext

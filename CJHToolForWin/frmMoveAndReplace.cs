@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CJHToolForWin
 {
-    public partial class Form1 : Form
+    public partial class frmMoveAndReplace : Form
     {
-        public Form1()
+        public frmMoveAndReplace()
         {
             InitializeComponent();
         }

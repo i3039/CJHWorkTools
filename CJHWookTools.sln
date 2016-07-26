@@ -21,6 +21,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CJHToolWeb", "http://localh
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{825f9f40-e124-4f8f-982c-5488328c8f70}|CJH.BLL.dll;{CFD5B9A4-171F-4E8E-9FFE-15949D35F5C1}|CJH.Common.dll;{DEF5570C-02B3-4765-92A1-56A95DB4576B}|CJH.DAL.dll;{9E26430B-D75D-4B77-9DC1-1C77B073295A}|CJH.DBUtility.dll;{2B045F76-6D15-464E-B689-A87E0A5F28E4}|CJH.Model.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_15246"
 		Debug.AspNetCompiler.PhysicalPath = "CJHToolWeb\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_15246\"
@@ -37,6 +38,9 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CJHToolWeb", "http://localh
 		Release.AspNetCompiler.Debug = "False"
 		SlnRelativePath = "CJHToolWeb\"
 		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{D29A5FF8-C5AC-4A72-BC52-63C538A5CB30} = {D29A5FF8-C5AC-4A72-BC52-63C538A5CB30}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{699D7A32-566E-4B60-98FB-84CB9677BB18}"

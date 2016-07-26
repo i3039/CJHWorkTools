@@ -16,6 +16,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetTheAreaName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTheAreaNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTheAreaNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetAreaCode">
         <s:complexType>
           <s:sequence>
@@ -82,6 +96,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="DelHHTArea">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelHHTAreaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DelHHTAreaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetHHTAreaRemark">
         <s:complexType>
           <s:sequence>
@@ -110,6 +138,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetHHTAreaListByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHHTAreaListByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHHTAreaListByNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="string" nillable="true" type="s:string" />
     </s:schema>
   </wsdl:types>
@@ -118,6 +160,12 @@
   </wsdl:message>
   <wsdl:message name="GetAreaNameSoapOut">
     <wsdl:part name="parameters" element="tns:GetAreaNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTheAreaNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTheAreaName" />
+  </wsdl:message>
+  <wsdl:message name="GetTheAreaNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTheAreaNameResponse" />
   </wsdl:message>
   <wsdl:message name="GetAreaCodeSoapIn">
     <wsdl:part name="parameters" element="tns:GetAreaCode" />
@@ -149,6 +197,12 @@
   <wsdl:message name="SaveHHTAreaSoapOut">
     <wsdl:part name="parameters" element="tns:SaveHHTAreaResponse" />
   </wsdl:message>
+  <wsdl:message name="DelHHTAreaSoapIn">
+    <wsdl:part name="parameters" element="tns:DelHHTArea" />
+  </wsdl:message>
+  <wsdl:message name="DelHHTAreaSoapOut">
+    <wsdl:part name="parameters" element="tns:DelHHTAreaResponse" />
+  </wsdl:message>
   <wsdl:message name="GetHHTAreaRemarkSoapIn">
     <wsdl:part name="parameters" element="tns:GetHHTAreaRemark" />
   </wsdl:message>
@@ -161,10 +215,22 @@
   <wsdl:message name="GetHHTAreaListSoapOut">
     <wsdl:part name="parameters" element="tns:GetHHTAreaListResponse" />
   </wsdl:message>
+  <wsdl:message name="GetHHTAreaListByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHHTAreaListByName" />
+  </wsdl:message>
+  <wsdl:message name="GetHHTAreaListByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHHTAreaListByNameResponse" />
+  </wsdl:message>
   <wsdl:message name="GetAreaNameHttpGetIn">
     <wsdl:part name="code" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetAreaNameHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTheAreaNameHttpGetIn">
+    <wsdl:part name="code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTheAreaNameHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="GetAreaCodeHttpGetIn">
@@ -195,6 +261,12 @@
   <wsdl:message name="SaveHHTAreaHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="DelHHTAreaHttpGetIn">
+    <wsdl:part name="value" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelHHTAreaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="GetHHTAreaRemarkHttpGetIn">
     <wsdl:part name="value" type="s:string" />
   </wsdl:message>
@@ -207,10 +279,22 @@
   <wsdl:message name="GetHHTAreaListHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="GetHHTAreaListByNameHttpGetIn">
+    <wsdl:part name="value" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHHTAreaListByNameHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="GetAreaNameHttpPostIn">
     <wsdl:part name="code" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetAreaNameHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTheAreaNameHttpPostIn">
+    <wsdl:part name="code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTheAreaNameHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
   <wsdl:message name="GetAreaCodeHttpPostIn">
@@ -241,6 +325,12 @@
   <wsdl:message name="SaveHHTAreaHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="DelHHTAreaHttpPostIn">
+    <wsdl:part name="value" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DelHHTAreaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:message name="GetHHTAreaRemarkHttpPostIn">
     <wsdl:part name="value" type="s:string" />
   </wsdl:message>
@@ -253,11 +343,22 @@
   <wsdl:message name="GetHHTAreaListHttpPostOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="GetHHTAreaListByNameHttpPostIn">
+    <wsdl:part name="value" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHHTAreaListByNameHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
   <wsdl:portType name="CJHWServiceBaseSoap">
     <wsdl:operation name="GetAreaName">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地区编码查询地名</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地区编码查询完整地名</wsdl:documentation>
       <wsdl:input message="tns:GetAreaNameSoapIn" />
       <wsdl:output message="tns:GetAreaNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTheAreaName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地区编码查询准确匹配地名</wsdl:documentation>
+      <wsdl:input message="tns:GetTheAreaNameSoapIn" />
+      <wsdl:output message="tns:GetTheAreaNameSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetAreaCode">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地名查询地区编码</wsdl:documentation>
@@ -284,6 +385,11 @@
       <wsdl:input message="tns:SaveHHTAreaSoapIn" />
       <wsdl:output message="tns:SaveHHTAreaSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="DelHHTArea">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除户户通乡镇村信息</wsdl:documentation>
+      <wsdl:input message="tns:DelHHTAreaSoapIn" />
+      <wsdl:output message="tns:DelHHTAreaSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetHHTAreaRemark">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取户户通编码对应说明</wsdl:documentation>
       <wsdl:input message="tns:GetHHTAreaRemarkSoapIn" />
@@ -294,12 +400,22 @@
       <wsdl:input message="tns:GetHHTAreaListSoapIn" />
       <wsdl:output message="tns:GetHHTAreaListSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetHHTAreaListByName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取包含指定地名列表</wsdl:documentation>
+      <wsdl:input message="tns:GetHHTAreaListByNameSoapIn" />
+      <wsdl:output message="tns:GetHHTAreaListByNameSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="CJHWServiceBaseHttpGet">
     <wsdl:operation name="GetAreaName">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地区编码查询地名</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地区编码查询完整地名</wsdl:documentation>
       <wsdl:input message="tns:GetAreaNameHttpGetIn" />
       <wsdl:output message="tns:GetAreaNameHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTheAreaName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地区编码查询准确匹配地名</wsdl:documentation>
+      <wsdl:input message="tns:GetTheAreaNameHttpGetIn" />
+      <wsdl:output message="tns:GetTheAreaNameHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="GetAreaCode">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地名查询地区编码</wsdl:documentation>
@@ -326,6 +442,11 @@
       <wsdl:input message="tns:SaveHHTAreaHttpGetIn" />
       <wsdl:output message="tns:SaveHHTAreaHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="DelHHTArea">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除户户通乡镇村信息</wsdl:documentation>
+      <wsdl:input message="tns:DelHHTAreaHttpGetIn" />
+      <wsdl:output message="tns:DelHHTAreaHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetHHTAreaRemark">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取户户通编码对应说明</wsdl:documentation>
       <wsdl:input message="tns:GetHHTAreaRemarkHttpGetIn" />
@@ -336,12 +457,22 @@
       <wsdl:input message="tns:GetHHTAreaListHttpGetIn" />
       <wsdl:output message="tns:GetHHTAreaListHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetHHTAreaListByName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取包含指定地名列表</wsdl:documentation>
+      <wsdl:input message="tns:GetHHTAreaListByNameHttpGetIn" />
+      <wsdl:output message="tns:GetHHTAreaListByNameHttpGetOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="CJHWServiceBaseHttpPost">
     <wsdl:operation name="GetAreaName">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地区编码查询地名</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地区编码查询完整地名</wsdl:documentation>
       <wsdl:input message="tns:GetAreaNameHttpPostIn" />
       <wsdl:output message="tns:GetAreaNameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTheAreaName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地区编码查询准确匹配地名</wsdl:documentation>
+      <wsdl:input message="tns:GetTheAreaNameHttpPostIn" />
+      <wsdl:output message="tns:GetTheAreaNameHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="GetAreaCode">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据地名查询地区编码</wsdl:documentation>
@@ -368,6 +499,11 @@
       <wsdl:input message="tns:SaveHHTAreaHttpPostIn" />
       <wsdl:output message="tns:SaveHHTAreaHttpPostOut" />
     </wsdl:operation>
+    <wsdl:operation name="DelHHTArea">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除户户通乡镇村信息</wsdl:documentation>
+      <wsdl:input message="tns:DelHHTAreaHttpPostIn" />
+      <wsdl:output message="tns:DelHHTAreaHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetHHTAreaRemark">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取户户通编码对应说明</wsdl:documentation>
       <wsdl:input message="tns:GetHHTAreaRemarkHttpPostIn" />
@@ -378,11 +514,25 @@
       <wsdl:input message="tns:GetHHTAreaListHttpPostIn" />
       <wsdl:output message="tns:GetHHTAreaListHttpPostOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetHHTAreaListByName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取包含指定地名列表</wsdl:documentation>
+      <wsdl:input message="tns:GetHHTAreaListByNameHttpPostIn" />
+      <wsdl:output message="tns:GetHHTAreaListByNameHttpPostOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CJHWServiceBaseSoap" type="tns:CJHWServiceBaseSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetAreaName">
       <soap:operation soapAction="http://tempuri.org/GetAreaName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTheAreaName">
+      <soap:operation soapAction="http://tempuri.org/GetTheAreaName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -435,6 +585,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DelHHTArea">
+      <soap:operation soapAction="http://tempuri.org/DelHHTArea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetHHTAreaRemark">
       <soap:operation soapAction="http://tempuri.org/GetHHTAreaRemark" style="document" />
       <wsdl:input>
@@ -453,11 +612,29 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetHHTAreaListByName">
+      <soap:operation soapAction="http://tempuri.org/GetHHTAreaListByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="CJHWServiceBaseSoap12" type="tns:CJHWServiceBaseSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetAreaName">
       <soap12:operation soapAction="http://tempuri.org/GetAreaName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTheAreaName">
+      <soap12:operation soapAction="http://tempuri.org/GetTheAreaName" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -510,6 +687,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DelHHTArea">
+      <soap12:operation soapAction="http://tempuri.org/DelHHTArea" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetHHTAreaRemark">
       <soap12:operation soapAction="http://tempuri.org/GetHHTAreaRemark" style="document" />
       <wsdl:input>
@@ -521,6 +707,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetHHTAreaList">
       <soap12:operation soapAction="http://tempuri.org/GetHHTAreaList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHHTAreaListByName">
+      <soap12:operation soapAction="http://tempuri.org/GetHHTAreaListByName" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -540,6 +735,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetTheAreaName">
+      <http:operation location="/GetTheAreaName" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAreaCode">
       <http:operation location="/GetAreaCode" />
       <wsdl:input>
@@ -585,6 +789,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DelHHTArea">
+      <http:operation location="/DelHHTArea" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetHHTAreaRemark">
       <http:operation location="/GetHHTAreaRemark" />
       <wsdl:input>
@@ -596,6 +809,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetHHTAreaList">
       <http:operation location="/GetHHTAreaList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHHTAreaListByName">
+      <http:operation location="/GetHHTAreaListByName" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -615,6 +837,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetTheAreaName">
+      <http:operation location="/GetTheAreaName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAreaCode">
       <http:operation location="/GetAreaCode" />
       <wsdl:input>
@@ -660,6 +891,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DelHHTArea">
+      <http:operation location="/DelHHTArea" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetHHTAreaRemark">
       <http:operation location="/GetHHTAreaRemark" />
       <wsdl:input>
@@ -671,6 +911,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetHHTAreaList">
       <http:operation location="/GetHHTAreaList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHHTAreaListByName">
+      <http:operation location="/GetHHTAreaListByName" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>

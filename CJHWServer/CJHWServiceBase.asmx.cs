@@ -22,11 +22,19 @@ namespace CJH.CJHWServer
         BLL.Base_Area areaBLL = new BLL.Base_Area();
         BLL.HHT_Area hhtAreaBLL = new BLL.HHT_Area();
 
-        [WebMethod(Description="根据地区编码查询地名")]
+        [WebMethod(Description="根据地区编码查询完整地名")]
         [ScriptMethod(UseHttpGet = false)]
         public string GetAreaName(string code)
         {
             return Common.JsonHelper.Serialize(areaBLL.GetAllName(code));
+            //return Common.JsonHelper.GetJosn<List<Model.Base_Area>>(areaBLL.GetAllName(code));
+        }
+
+        [WebMethod(Description = "根据地区编码查询准确匹配地名")]
+        [ScriptMethod(UseHttpGet = false)]
+        public string GetTheAreaName(string code)
+        {
+            return Common.JsonHelper.Serialize(areaBLL.GetTheName(code));
             //return Common.JsonHelper.GetJosn<List<Model.Base_Area>>(areaBLL.GetAllName(code));
         }
 
@@ -62,6 +70,8 @@ namespace CJH.CJHWServer
             return Common.JsonHelper.GetJosn<List<Model.Base_Area>>(areaBLL.GetAreaList(pcode, 3));
         }
 
+        #region HHT_Area
+
         [WebMethod(Description="保存户户通乡镇村信息")]
         [ScriptMethod(UseHttpGet = false)]
         public string SaveHHTArea(string value)
@@ -70,6 +80,17 @@ namespace CJH.CJHWServer
 
             Model.HHT_Area hhtArea = Common.JsonHelper.ParseFormJson<Model.HHT_Area>(value);
             result = (hhtAreaBLL.Add(hhtArea)) ? "OK" : "增加失败";
+
+            return result;
+        }
+
+        [WebMethod(Description = "删除户户通乡镇村信息")]
+        [ScriptMethod(UseHttpGet = false)]
+        public string DelHHTArea(string value)
+        {
+            string result = "OK";
+
+            result = (hhtAreaBLL.Delete(value)) ? "OK" : "删除失败";
 
             return result;
         }
@@ -97,6 +118,15 @@ namespace CJH.CJHWServer
             //}
             return Common.JsonHelper.GetJosn<List<Model.HHT_Area>>(hhtAreaBLL.GetHHTAreaList(value));
         }
+
+        [WebMethod(Description = "获取包含指定地名列表")]
+        [ScriptMethod(UseHttpGet = false)]
+        public string GetHHTAreaListByName(string value)
+        {
+            return Common.JsonHelper.GetJosn<List<Model.HHT_Area>>(hhtAreaBLL.GetHHTAreaListByName(value));
+        }
+
+        #endregion HHT_Area
     }
 
     

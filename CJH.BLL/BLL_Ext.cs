@@ -43,6 +43,20 @@ namespace CJH.BLL
             return pname + "" + ciname + "" + coname;
         }
 
+        /// <summary>
+        /// 根据编码得到准确匹配地址
+        /// </summary>
+        public string GetTheName(string code)
+        {
+            Model.Base_Area m = dal.GetModel(code);
+            if (m != null)
+            {
+                return m.AreaName;
+            }
+
+            return "";
+        }
+
         public List<Model.Base_Area> GetAreaCode(string areaname)
         {
             return GetModelList(" AreaName like '" + areaname + "%' ");
@@ -87,6 +101,11 @@ namespace CJH.BLL
         {
             pcode = pcode.Substring(0, 9);
             return GetModelList(" Code like '" + pcode + "%'");
+        }
+
+        public List<Model.HHT_Area> GetHHTAreaListByName(string name)
+        {
+            return GetModelList(" AreaName like '%" + name + "%'");
         }
 
         #endregion Ext

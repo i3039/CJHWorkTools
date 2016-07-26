@@ -31,6 +31,8 @@ namespace CJH.CJHToolForWin.WS_Area {
         
         private System.Threading.SendOrPostCallback GetAreaNameOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetTheAreaNameOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetAreaCodeOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetProvincesOperationCompleted;
@@ -41,9 +43,13 @@ namespace CJH.CJHToolForWin.WS_Area {
         
         private System.Threading.SendOrPostCallback SaveHHTAreaOperationCompleted;
         
+        private System.Threading.SendOrPostCallback DelHHTAreaOperationCompleted;
+        
         private System.Threading.SendOrPostCallback GetHHTAreaRemarkOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetHHTAreaListOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetHHTAreaListByNameOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -87,6 +93,9 @@ namespace CJH.CJHToolForWin.WS_Area {
         public event GetAreaNameCompletedEventHandler GetAreaNameCompleted;
         
         /// <remarks/>
+        public event GetTheAreaNameCompletedEventHandler GetTheAreaNameCompleted;
+        
+        /// <remarks/>
         public event GetAreaCodeCompletedEventHandler GetAreaCodeCompleted;
         
         /// <remarks/>
@@ -102,10 +111,16 @@ namespace CJH.CJHToolForWin.WS_Area {
         public event SaveHHTAreaCompletedEventHandler SaveHHTAreaCompleted;
         
         /// <remarks/>
+        public event DelHHTAreaCompletedEventHandler DelHHTAreaCompleted;
+        
+        /// <remarks/>
         public event GetHHTAreaRemarkCompletedEventHandler GetHHTAreaRemarkCompleted;
         
         /// <remarks/>
         public event GetHHTAreaListCompletedEventHandler GetHHTAreaListCompleted;
+        
+        /// <remarks/>
+        public event GetHHTAreaListByNameCompletedEventHandler GetHHTAreaListByNameCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAreaName", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -133,6 +148,35 @@ namespace CJH.CJHToolForWin.WS_Area {
             if ((this.GetAreaNameCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetAreaNameCompleted(this, new GetAreaNameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetTheAreaName", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetTheAreaName(string code) {
+            object[] results = this.Invoke("GetTheAreaName", new object[] {
+                        code});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetTheAreaNameAsync(string code) {
+            this.GetTheAreaNameAsync(code, null);
+        }
+        
+        /// <remarks/>
+        public void GetTheAreaNameAsync(string code, object userState) {
+            if ((this.GetTheAreaNameOperationCompleted == null)) {
+                this.GetTheAreaNameOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetTheAreaNameOperationCompleted);
+            }
+            this.InvokeAsync("GetTheAreaName", new object[] {
+                        code}, this.GetTheAreaNameOperationCompleted, userState);
+        }
+        
+        private void OnGetTheAreaNameOperationCompleted(object arg) {
+            if ((this.GetTheAreaNameCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetTheAreaNameCompleted(this, new GetTheAreaNameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -280,6 +324,35 @@ namespace CJH.CJHToolForWin.WS_Area {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DelHHTArea", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string DelHHTArea(string value) {
+            object[] results = this.Invoke("DelHHTArea", new object[] {
+                        value});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DelHHTAreaAsync(string value) {
+            this.DelHHTAreaAsync(value, null);
+        }
+        
+        /// <remarks/>
+        public void DelHHTAreaAsync(string value, object userState) {
+            if ((this.DelHHTAreaOperationCompleted == null)) {
+                this.DelHHTAreaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDelHHTAreaOperationCompleted);
+            }
+            this.InvokeAsync("DelHHTArea", new object[] {
+                        value}, this.DelHHTAreaOperationCompleted, userState);
+        }
+        
+        private void OnDelHHTAreaOperationCompleted(object arg) {
+            if ((this.DelHHTAreaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DelHHTAreaCompleted(this, new DelHHTAreaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHHTAreaRemark", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string GetHHTAreaRemark(string value) {
             object[] results = this.Invoke("GetHHTAreaRemark", new object[] {
@@ -338,6 +411,35 @@ namespace CJH.CJHToolForWin.WS_Area {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetHHTAreaListByName", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetHHTAreaListByName(string value) {
+            object[] results = this.Invoke("GetHHTAreaListByName", new object[] {
+                        value});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetHHTAreaListByNameAsync(string value) {
+            this.GetHHTAreaListByNameAsync(value, null);
+        }
+        
+        /// <remarks/>
+        public void GetHHTAreaListByNameAsync(string value, object userState) {
+            if ((this.GetHHTAreaListByNameOperationCompleted == null)) {
+                this.GetHHTAreaListByNameOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetHHTAreaListByNameOperationCompleted);
+            }
+            this.InvokeAsync("GetHHTAreaListByName", new object[] {
+                        value}, this.GetHHTAreaListByNameOperationCompleted, userState);
+        }
+        
+        private void OnGetHHTAreaListByNameOperationCompleted(object arg) {
+            if ((this.GetHHTAreaListByNameCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetHHTAreaListByNameCompleted(this, new GetHHTAreaListByNameCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -369,6 +471,32 @@ namespace CJH.CJHToolForWin.WS_Area {
         private object[] results;
         
         internal GetAreaNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void GetTheAreaNameCompletedEventHandler(object sender, GetTheAreaNameCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetTheAreaNameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetTheAreaNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -514,6 +642,32 @@ namespace CJH.CJHToolForWin.WS_Area {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void DelHHTAreaCompletedEventHandler(object sender, DelHHTAreaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DelHHTAreaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DelHHTAreaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
     public delegate void GetHHTAreaRemarkCompletedEventHandler(object sender, GetHHTAreaRemarkCompletedEventArgs e);
     
     /// <remarks/>
@@ -551,6 +705,32 @@ namespace CJH.CJHToolForWin.WS_Area {
         private object[] results;
         
         internal GetHHTAreaListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    public delegate void GetHHTAreaListByNameCompletedEventHandler(object sender, GetHHTAreaListByNameCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetHHTAreaListByNameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetHHTAreaListByNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

@@ -46,17 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmMdiParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMdiParent.Designer.cs">
+      <DependentUpon>frmMdiParent.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHHTArea.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmHHTArea.Designer.cs">
       <DependentUpon>frmHHTArea.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMoveAndReplace.cs">
+    <Compile Include="MoveReplace\frmMoveAndReplace.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMoveAndReplace.Designer.cs">
+    <Compile Include="MoveReplace\frmMoveAndReplace.Designer.cs">
       <DependentUpon>frmMoveAndReplace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmParent.Designer.cs">
+      <DependentUpon>frmParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpenInfo\frmOpenNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenInfo\frmOpenNew.Designer.cs">
+      <DependentUpon>frmOpenNew.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,11 +83,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmMdiParent.resx">
+      <DependentUpon>frmMdiParent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHHTArea.resx">
       <DependentUpon>frmHHTArea.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMoveAndReplace.resx">
+    <EmbeddedResource Include="MoveReplace\frmMoveAndReplace.resx">
       <DependentUpon>frmMoveAndReplace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmParent.resx">
+      <DependentUpon>frmParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenInfo\frmOpenNew.resx">
+      <DependentUpon>frmOpenNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

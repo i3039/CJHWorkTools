@@ -16,7 +16,7 @@ namespace CJH.CJHToolForWin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmHHTArea());
+            Application.Run(new frmMidParent());
         }
     }
 }

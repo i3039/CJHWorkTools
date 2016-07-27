@@ -1,9 +1,12 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CJHToolForWin.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CJH.CJHToolForWin.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="CJHToolForWin_WS_Area_CJHWServiceBase" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://cjh.viplive.cn:81/CJHWServiceBase.asmx</Value>
+    </Setting>
+    <Setting Name="CJH_CJHToolForWin_wsCardInfo_CJHWServiceCardInfo" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://cjh.viplive.cn:81/CJHWServiceCardInfo.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -32,5 +32,15 @@ namespace CJH.CJHToolForWin.Properties {
                 return ((string)(this["CJHToolForWin_WS_Area_CJHWServiceBase"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://cjh.viplive.cn:81/CJHWServiceCardInfo.asmx")]
+        public string CJH_CJHToolForWin_wsCardInfo_CJHWServiceCardInfo {
+            get {
+                return ((string)(this["CJH_CJHToolForWin_wsCardInfo_CJHWServiceCardInfo"]));
+            }
+        }
     }
 }

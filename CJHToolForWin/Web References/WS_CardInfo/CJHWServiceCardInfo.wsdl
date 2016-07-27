@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetCardInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveCardInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="json" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveCardInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveCardInfoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveTYInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveTYInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveTYInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCardInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetCardInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveCardInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveCardInfo" />
+  </wsdl:message>
+  <wsdl:message name="SaveCardInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveCardInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveTYInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveTYInfo" />
+  </wsdl:message>
+  <wsdl:message name="SaveTYInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveTYInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardInfoHttpGetIn">
+    <wsdl:part name="code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCardInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveCardInfoHttpGetIn">
+    <wsdl:part name="json" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveCardInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SaveTYInfoHttpGetIn">
+    <wsdl:part name="value" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveTYInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCardInfoHttpPostIn">
+    <wsdl:part name="code" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCardInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveCardInfoHttpPostIn">
+    <wsdl:part name="json" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveCardInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SaveTYInfoHttpPostIn">
+    <wsdl:part name="value" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveTYInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="CJHWServiceCardInfoSoap">
+    <wsdl:operation name="GetCardInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询卡或机子的开户信息</wsdl:documentation>
+      <wsdl:input message="tns:GetCardInfoSoapIn" />
+      <wsdl:output message="tns:GetCardInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCardInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">保存开户信息</wsdl:documentation>
+      <wsdl:input message="tns:SaveCardInfoSoapIn" />
+      <wsdl:output message="tns:SaveCardInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTYInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">保存移机或替换信息</wsdl:documentation>
+      <wsdl:input message="tns:SaveTYInfoSoapIn" />
+      <wsdl:output message="tns:SaveTYInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CJHWServiceCardInfoHttpGet">
+    <wsdl:operation name="GetCardInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询卡或机子的开户信息</wsdl:documentation>
+      <wsdl:input message="tns:GetCardInfoHttpGetIn" />
+      <wsdl:output message="tns:GetCardInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCardInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">保存开户信息</wsdl:documentation>
+      <wsdl:input message="tns:SaveCardInfoHttpGetIn" />
+      <wsdl:output message="tns:SaveCardInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTYInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">保存移机或替换信息</wsdl:documentation>
+      <wsdl:input message="tns:SaveTYInfoHttpGetIn" />
+      <wsdl:output message="tns:SaveTYInfoHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CJHWServiceCardInfoHttpPost">
+    <wsdl:operation name="GetCardInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">查询卡或机子的开户信息</wsdl:documentation>
+      <wsdl:input message="tns:GetCardInfoHttpPostIn" />
+      <wsdl:output message="tns:GetCardInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCardInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">保存开户信息</wsdl:documentation>
+      <wsdl:input message="tns:SaveCardInfoHttpPostIn" />
+      <wsdl:output message="tns:SaveCardInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTYInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">保存移机或替换信息</wsdl:documentation>
+      <wsdl:input message="tns:SaveTYInfoHttpPostIn" />
+      <wsdl:output message="tns:SaveTYInfoHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CJHWServiceCardInfoSoap" type="tns:CJHWServiceCardInfoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCardInfo">
+      <soap:operation soapAction="http://tempuri.org/GetCardInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCardInfo">
+      <soap:operation soapAction="http://tempuri.org/SaveCardInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTYInfo">
+      <soap:operation soapAction="http://tempuri.org/SaveTYInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CJHWServiceCardInfoSoap12" type="tns:CJHWServiceCardInfoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCardInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetCardInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCardInfo">
+      <soap12:operation soapAction="http://tempuri.org/SaveCardInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTYInfo">
+      <soap12:operation soapAction="http://tempuri.org/SaveTYInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CJHWServiceCardInfoHttpGet" type="tns:CJHWServiceCardInfoHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetCardInfo">
+      <http:operation location="/GetCardInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCardInfo">
+      <http:operation location="/SaveCardInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTYInfo">
+      <http:operation location="/SaveTYInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CJHWServiceCardInfoHttpPost" type="tns:CJHWServiceCardInfoHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetCardInfo">
+      <http:operation location="/GetCardInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCardInfo">
+      <http:operation location="/SaveCardInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTYInfo">
+      <http:operation location="/SaveTYInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CJHWServiceCardInfo">
+    <wsdl:port name="CJHWServiceCardInfoSoap" binding="tns:CJHWServiceCardInfoSoap">
+      <soap:address location="http://cjh.viplive.cn:81/CJHWServiceCardInfo.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CJHWServiceCardInfoSoap12" binding="tns:CJHWServiceCardInfoSoap12">
+      <soap12:address location="http://cjh.viplive.cn:81/CJHWServiceCardInfo.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CJHWServiceCardInfoHttpGet" binding="tns:CJHWServiceCardInfoHttpGet">
+      <http:address location="http://cjh.viplive.cn:81/CJHWServiceCardInfo.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CJHWServiceCardInfoHttpPost" binding="tns:CJHWServiceCardInfoHttpPost">
+      <http:address location="http://cjh.viplive.cn:81/CJHWServiceCardInfo.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

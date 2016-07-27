@@ -7,6 +7,7 @@ using System.Data;
 
 namespace CJH.BLL
 {
+    #region 地区相关
     public partial class Base_Area
     {
         #region Ext
@@ -111,5 +112,101 @@ namespace CJH.BLL
         #endregion Ext
     }
 
-    //public partial class 
+    #endregion 地区相关
+    
+
+    public partial class Job_CardInfo
+    {
+        #region Ext
+
+
+
+        #endregion Ext
+    }
+
+    public partial class Job_YT_Info
+    {
+        #region Ext
+
+        public List<Model.Job_YT_Info> GetYTList(string code)
+        {
+            string strWhere = "";
+            if (code.Length == 11)
+            {
+                strWhere = string.Format(" CAID='{0}' or Old_CAID='{0}'", code);
+            }
+            else
+            {
+                strWhere = string.Format(" SCID='{0}' or Old_SCID='{0}'", code);
+            }
+            //strWhere = (code.Length == 11) ? "CAID=" : "SCID=";
+            return GetModelList(strWhere);
+        }
+
+        public string SaveYTInfo(string jsonStr)
+        {
+            Model.Job_YT_Info ytM = Common.JsonHelper.ParseFormJson<Model.Job_YT_Info>(jsonStr);
+            int id = dal.Add(ytM);
+
+            if (id > 0)
+            {
+                return "OK";
+            }
+            else
+            {
+                return "Error";
+            }
+        }
+
+        #endregion Ext
+    }
+
+    public partial class Job_Open_Temp
+    {
+        #region Ext
+        #endregion Ext
+    }
+
+    public partial class Common_Strings
+    {
+        #region Ext
+
+        /// <summary>
+        /// 获取常用字符集
+        /// </summary>
+        /// <returns></returns>
+        public string GetCommonString(int id)
+        {
+            Model.Common_Strings commStrM = dal.GetModel(id);
+
+            return commStrM.Common_String;
+        }
+
+        #endregion Ext
+    }
+    /*
+     DataSet ds = dal.GetList(strWhere);
+            DataTable dt = ds.Tables[0];
+
+            List<CJH.Model.Customer> modelList = new List<CJH.Model.Customer>();
+            Model.Customer cm = new Model.Customer();
+            cm.Area_Name = "贵州";
+            cm.Cust_Name = "请选择";
+            cm.ID = 0;
+            modelList.Add(cm);
+
+            int rowsCount = dt.Rows.Count;
+            if (rowsCount > 0)
+            {
+                CJH.Model.Customer model;
+                for (int n = 0; n < rowsCount; n++)
+                {
+                    model = dal.DataRowToModel(dt.Rows[n]);
+                    if (model != null)
+                    {
+                        modelList.Add(model);
+                    }
+                }
+            }
+     */
 }

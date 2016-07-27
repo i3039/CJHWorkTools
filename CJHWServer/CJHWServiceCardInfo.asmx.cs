@@ -17,21 +17,42 @@ namespace CJH.CJHWServer
     [System.Web.Script.Services.ScriptService]
     public class CJHWServiceCardInfo : System.Web.Services.WebService
     {
+        BLL.Job_YT_Info ytInfoBLL = new BLL.Job_YT_Info();
+        BLL.Common_Strings commStrBLL = new BLL.Common_Strings();
 
         [WebMethod(Description = "查询卡或机子的开户信息")]
         [ScriptMethod(UseHttpGet = false)]
         public string GetCardInfo(string code)
         {
-            return "Hello World";
+            string result = Common.JsonHelper.Serialize(ytInfoBLL.GetYTList(code));
+            return result;
         }
 
         [WebMethod(Description="保存开户信息")]
-        //[]
+        [ScriptMethod(UseHttpGet = false)]
         public bool SaveCardInfo(string json)
         {
             bool result = false;
 
             return result;
         }
+
+        [WebMethod(Description = "保存移机或替换信息")]
+        [ScriptMethod(UseHttpGet = false)]
+        public string SaveTYInfo(string value)
+        {
+            return ytInfoBLL.SaveYTInfo(value);
+        }
+
+        #region 常用字符串
+
+        [WebMethod(Description = "获取常用字符集")]
+        [ScriptMethod(UseHttpGet = false)]
+        public string GetBoardModel(int value)
+        {
+            return commStrBLL.GetCommonString(value);
+        }
+
+        #endregion 常用字符串
     }
 }

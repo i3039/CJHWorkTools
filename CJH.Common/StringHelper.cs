@@ -97,6 +97,24 @@ namespace CJH.Common
         }
 
         /// <summary>
+        /// 判断字符串是否为数字
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool isNumberic(string str)
+        {
+            try
+            {
+                Int64 a = Convert.ToInt64(str);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
         /// 转换日期格式：YYYY-MM-DD
         /// </summary>
         /// <param name="dtStr"></param>

@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CJH.CJHToolForWin
@@ -15,6 +14,9 @@ namespace CJH.CJHToolForWin
         public frmMidParent()
         {
             InitializeComponent();
+
+            this.Load += frmMidParent_Load;
+            this.LocationChanged += frmMidParent_LocationChanged;
 
             #region copy Open String
             copyNewName.Click += copyNewName_Click;
@@ -32,6 +34,7 @@ namespace CJH.CJHToolForWin
 
             //Move and Replace
             tsmMoveReplace.Click += tsmMoveReplace_Click;
+            tsmActionM.Click += tsmActionM_Click;
             
             //Repair
             tsmRepairBoarding.Click += tsmRepairBoarding_Click;
@@ -40,7 +43,16 @@ namespace CJH.CJHToolForWin
             ShowDefaultForm();
         }
 
-        
+        void tsmActionM_Click(object sender, EventArgs e)
+        {
+            if (!FormIsOpened("frmActionMode"))
+            {
+                frmActionMode frmAM = new frmActionMode();
+                frmAM.MdiParent = this;
+                frmAM.WindowState = FormWindowState.Maximized;
+                frmAM.Show();
+            }
+        }
 
         #region copy Open String
 
@@ -171,6 +183,92 @@ namespace CJH.CJHToolForWin
 
             return false;
         }
+
+        #region 靠边隐藏
+
+        private void frmMidParent_Load(object sender, EventArgs e)
+        {
+            this.TopMost = true;
+            Timer checkDockTimer = new Timer();
+            checkDockTimer.Tick += new EventHandler(StopRectTimer_Tick);
+            checkDockTimer.Interval = 100;
+            checkDockTimer.Enabled = true;
+        }
+
+
+        private void StopRectTimer_Tick(object sender, EventArgs e)
+        {
+            //如果鼠标在窗体上，则根据停靠位置显示整个窗体
+            if (this.Bounds.Contains(Cursor.Position))
+            {
+                switch (this.StopDock)
+                {
+                    case AnchorStyles.Top:
+                        this.Location = new Point(this.Location.X, 0);
+                        break;
+                    case AnchorStyles.Bottom:
+                        this.Location = new Point(this.Location.X, Screen.PrimaryScreen.Bounds.Height - this.Height);
+                        break;
+                    case AnchorStyles.Left:
+                        this.Location = new Point(0, this.Location.Y);
+                        break;
+                    case AnchorStyles.Right:
+                        this.Location = new Point(Screen.PrimaryScreen.Bounds.Width - this.Width, this.Location.Y);
+                        break;
+                }
+            }
+            else  //如果鼠标离开窗体，则根据停靠位置隐藏窗体，但须留出部分窗体边缘以便鼠标选中窗体
+            {
+                switch (this.StopDock)
+                {
+                    case AnchorStyles.Top:
+                        this.Location = new Point(this.Location.X, (this.Height - 3) * (-1));
+                        break;
+                    case AnchorStyles.Bottom:
+                        this.Location = new Point(this.Location.X, Screen.PrimaryScreen.Bounds.Height - 5);
+                        break;
+                    case AnchorStyles.Left:
+                        this.Location = new Point((-1) * (this.Width - 3), this.Location.Y);
+                        break;
+                    case AnchorStyles.Right:
+                        this.Location = new Point(Screen.PrimaryScreen.Bounds.Width - 2, this.Location.Y);
+                        break;
+                }
+            }
+        }
+
+        internal AnchorStyles StopDock = AnchorStyles.None;
+
+        /// <summary>
+        /// 更改窗体的位置时，根据和各个窗体边缘的距离赋值停靠的位置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmMidParent_LocationChanged(object sender, EventArgs e)
+        {
+            if (this.Top <= 0)
+            {
+                this.StopDock = AnchorStyles.Top;
+            }
+            else if (this.Bottom >= Screen.PrimaryScreen.Bounds.Height)
+            {
+                this.StopDock = AnchorStyles.Bottom;
+            }
+            else if (this.Left <= 0)
+            {
+                this.StopDock = AnchorStyles.Left;
+            }
+            else if (this.Left >= Screen.PrimaryScreen.Bounds.Width - this.Width)
+            {
+                this.StopDock = AnchorStyles.Right;
+            }
+            else
+            {
+                this.StopDock = AnchorStyles.None;
+            }
+        }
+
+        #endregion 靠边隐藏
 
         #endregion 窗体设置
     }
